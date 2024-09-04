@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="begin">开始</button>
+    <button id="interaction">添加交互任务</button>
+    <script>
+        /**
+         * 两个队列 一个队列延迟任务、一个队列交互任务
+         * *************************
+         * * 队列1 延迟任务
+         * *************************
+         * *************************
+         * * 队列2 交互任务
+         * *************************
+         * 验证哪个任务先取哪个后取 -> 按照官方规 不管哪个任务先被添加哪个任务后被添加 交互任务优先级一定高于延迟任务
+         * 以下代码验证
+         */
+        var begin = document.getElementById('begin');
+        var interaction = document.getElementById('interaction');
+
+        function delay (duration) {
+            var start = Date.now();
+            while (Date.now() - start < duration) {}
+        }
+
+        function addDelay () {
+            console.log('添加延迟队列');
+            setTimeout(function () {
+                console.log('延迟队列执行')
+            }, 100);
+            delay(2000);
+        }
+
+        function addInteraction () {
+            console.log('添加交互队列');
+            interaction.onclick = function () {
+                console.log('交互队列执行');
+            }
+            delay(2000);
+        }
+
+        begin.onclick = function () {
+            addDelay();
+            addInteraction();
+            console.log('===============')
+        }
+    </script>
+</body>
+</html>

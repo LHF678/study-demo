@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 当点击【死循环5s】时，会发现，页面会卡死 input 无法输入 当页面可以正常滚动，这是因为滚动不在渲染主线程上 -->
+    <button id="btn">死循环5s</button>
+    <input type="text">
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈</p>
+    <script>
+        function delay (duration) {
+            var start = Date.now();
+            while (Date.now() - start < duration) {}
+        }
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            delay(5000)
+        }
+    </script>
+</body>
+</html>
