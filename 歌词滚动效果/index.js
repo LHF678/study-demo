@@ -48,6 +48,13 @@ function findIndex() {
  * @return void
  */
 function drawLrcElements () {
+    /**
+     * 插入 DOM 元素时会引起浏览器回流，然而在频繁做插入操作时，回流会严重影响性能
+     * 所以可以使用 createDocumentFragment (创建一个新的空白的文档片段) 来优化
+     *
+     * 因为文档片段存在于内存中，并不在 DOM 树中，所以将子元素插入到文档片段时不会引起页面回流（对元素位置和几何上的计算）。
+     * 因此，使用文档片段通常会带来更好的性能
+     */
     const frag = document.createDocumentFragment()
     for(let i = 0; i < lrcData.length; i++) {
         const li = document.createElement('li')
