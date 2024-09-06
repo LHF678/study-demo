@@ -33,6 +33,7 @@ const lrcData = parseLrc()
 /**
  * @description 计算出，当前播放时间对应的数据集合下标
  * @return {number} 下标
+ * @return void
  */
 function findIndex() {
     const currentTime = doms.audio.currentTime
@@ -44,7 +45,6 @@ function findIndex() {
 
 /**
  * @description 绘制歌词
- * @param info 参数
  * @return void
  */
 function drawLrcElements () {
