@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        姓名：<span id="name"></span>
+    </p>
+    <p>
+        年龄：<span id="age"></span>
+    </p>
+    <p>
+        修改姓名 <input type="text" oninput="obj.name = this.value">
+    </p>
+    <p>
+        修改年龄 <input type="number" oninput="obj.age = this.value">
+    </p>
+    <script src="./euv.js"></script>
+    <script>
+        const obj = {
+            name: '张三',
+            age: 18
+        }
+
+        observe(obj) // 观察
+
+        function showName () {
+            document.getElementById('name').textContent = obj.name
+        }
+
+        function showAge () {
+            document.getElementById('age').textContent = obj.age
+        }
+
+        autoRun(showName)
+        autoRun(showAge)
+
+    </script>
+</body>
+</html>
