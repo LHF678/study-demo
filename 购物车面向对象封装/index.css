@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: relative;
+    width: 375px;
+    height: 667px;
+    margin: 30px;
+    display: flex;
+    border: solid 1px #ccc;
+    padding-bottom: 50px;
+}
+
+.goods-menu {
+    width: 80px;
+    height: 100%;
+    flex-shrink: 0;
+    background-color: #ccc;
+}
+
+.goods-list {
+    flex: 1;
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+
+.goods-list-item {
+    height: 90px;
+    padding-left: 20px;
+    margin-top: 20px;
+    display: flex;
+}
+
+.goods-list-item__slt {
+    width: 80px;
+    height: 80px;
+    background-color: #eee;
+    flex-shrink: 0;
+}
+
+.goods-list-item__product {
+    padding-left: 10px;
+    padding-right: 10px;
+    flex: 1;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.product-title {
+    font-size: 16px;
+}
+
+.product-decs {
+    font-size: 12px;
+    margin: 10px 0;
+    color: #666;
+    width: 100%;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.product-price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price {
+    color: #e38912;
+}
+.control {
+    display: flex;
+}
+
+.circle {
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+}
+.circle.minus {
+    display: none;
+    border: solid 1px #999;
+    color: #999;
+}
+.count {
+    display: none;
+    font-size: 14px;
+    margin: 0 6px;
+}
+.circle.add {
+    border: solid 1px #0d74e2;
+    background-color: #0d74e2;
+    color: #fff;
+}
+.goods-list-item.active .circle.minus {
+    display: block;
+}
+.goods-list-item.active .count {
+    display: block;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    width: 100%;
+    background-color: #3a3838;
+    display: flex;
+}
+
+.footer-left {
+    flex-basis: 70%;
+    display: flex;
+}
+
+.footer-left .footer-left-car {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    padding: 4px;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-top: -14px;
+    background-color: #343232;
+}
+
+.footer-left .footer-left-car ._car {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    font-size: 28px;
+}
+.footer-left-car ._count {
+    display: none;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 50%;;
+    top: 4px;
+    right: 8px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #f42020;
+
+}
+
+.footer-left.active .footer-left-car ._car {
+    background-color: #4d99ea;
+}
+.footer-left.active .footer-left-car ._count {
+    display: block;
+}
+
+.footer-left-price {
+    margin-left: 10px;
+    color:#eee;
+}
+
+.footer-left-price ._price {
+    padding-top: 4px;
+}
+
+.footer-left-price ._distribution {
+    font-size: 12px;
+}
+
+
+
+.footer-right {
+    flex: 1;
+    line-height: 50px;
+    text-align: center;
+    background-color: #5a5555;
+    font-size: 14px;
+}
+
+.minimum {
+    color: #eee;
+}
+
+.settle-accounts {
+    display: none;
+}
+
+.footer-right.active {
+    cursor: pointer;
+    background-color: #1c820e;
+}
+.footer-right.active .minimum {
+    display: none;
+}
+.footer-right.active .settle-accounts {
+    display: inline-block;
+    color: #fff;
+}
