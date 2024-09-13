@@ -13,12 +13,12 @@
         <div class="footer">
             <div class="footer-left">
                 <div class="footer-left-car">
-                    <span class="_count">1</span>
+                    <span class="_count"></span>
                     <div class="_car">🚗</div>
                 </div>
                 <div class="footer-left-price">
                     <p class="_price">
-                        ￥<span>0.00</span>
+                        ￥<span id="total-price">0.00</span>
                     </p>
                     <p class="_distribution">
                         配送费￥<span id="distribution"></span>元
@@ -43,8 +43,14 @@
                 goodsCount: '.count',
                 distribution: '#distribution', // 配送费容器
                 minimum: '#minimum', // 起送费容器
+                totalPrice: '#total-price', // 总价容器
+                deliveryBtn: '.footer-right', // 结算按钮容器
+                leftPrice: '.footer-left', // 购物车容器
+                carCount: '._count', // 购物车数量
+                car: '.footer-left-car', // 购物车
+                addBtn: '.add' // 加号按钮
             },
-            goodsTemplate (g) {
+            goodsTemplate (g, i) {
                 return `
                     <div class="goods-list-item">
                         <div class="goods-list-item__slt"></div>
@@ -60,12 +66,22 @@
                                 <div class="control">
                                     <span class="circle minus">-</span>
                                     <span class="count"></span>
-                                    <span class="circle add">+</span>
+                                    <span class="circle add" data-index="${i}">+</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 `
+            }
+        })
+
+        document.querySelector('.goods-list').addEventListener('click', (e) => {
+            if (e.target.classList.contains('add')) {
+                const index = +e.target.getAttribute('data-index')
+                ui.increase(index)
+            } else if (e.target.classList.contains('minus')) {
+                const index = +e.target.getAttribute('data-index')
+                ui.decrease(index)
             }
         })
     </script>

@@ -91,23 +91,42 @@ class UI {
             goodsContainer: document.querySelector(el.container),
             distribution: document.querySelector(el.distribution), // 配送费容器
             minimum: document.querySelector(el.minimum), // 起送费容器
+            totalPrice: document.querySelector(el.totalPrice), // 总价容器
+            deliveryBtn: document.querySelector(el.deliveryBtn), // 结算按钮
+            leftPrice: document.querySelector(el.leftPrice), // 购物车容器
+            carCount: document.querySelector(el.carCount), // 购物车数量容器
+            car: document.querySelector(el.car), // 购物车
+
+        }
+        const carRect = this.doms.car.getBoundingClientRect()
+        this.jumpTarget = {
+            x: carRect.left + carRect.width / 2,
+            y: carRect.top + carRect.height / 5
         }
         this._createHTML()
         this._footerRender()
+        this._listenEvents()
     }
 
     // 根据商品列表创建商品元素
     _createHTML () {
         let html = ''
-        for (let g of this.uiData.uiGoods) {
-            html += this.goodsTemplate(g)
+        for (let i = 0; i < this.uiData.uiGoods.length; i++) {
+            const g = this.uiData.uiGoods[i]
+            html += this.goodsTemplate(g, i)
         }
         this.doms.goodsContainer.innerHTML = html
     }
 
     _footerRender() {
-        this.doms.distribution.textContent = this.uiData.deliveryThreshold
-        this.doms.minimum.textContent = this.uiData.deliveryPrice
+        this.doms.distribution.textContent = this.uiData.deliveryPrice
+        this.doms.minimum.textContent = this.uiData.deliveryThreshold
+    }
+
+    _listenEvents () {
+        this.doms.car.addEventListener('animationend', function () {
+            this.classList.remove('car-animate')
+        })
     }
 
     // 增加
@@ -115,6 +134,7 @@ class UI {
         this.uiData.increase(index)
         this.updateGoodsItem(index)
         this.updateFooter(index)
+        this.jump(index)
     }
 
     // 减少
@@ -137,6 +157,65 @@ class UI {
 
     // 更新页脚
     updateFooter (index) {
-        
+         // 总价
+        const total = this.uiData.getTotalPrice()
+         // 设置总价
+        this.doms.totalPrice.textContent = total.toFixed(2)
+        // 设置起送状态&还差多少起送
+        if (this.uiData.isDelivery()) {
+            this.doms.deliveryBtn.classList.add('active')
+        } else {
+            this.doms.deliveryBtn.classList.remove('active')
+            // 还差多少
+            this.doms.minimum.textContent = Math.round(this.uiData.deliveryThreshold - total)
+        }
+        // 设置购物车数量
+        if (this.uiData.isCarNotEmpty()) {
+            this.doms.leftPrice.classList.add('active')
+            this.doms.carCount.textContent = this.uiData.getAllChooseCount()
+        } else {
+            this.doms.leftPrice.classList.remove('active')
+        }
+    }
+
+    // 购物车动画
+    carAnimation () {
+        this.doms.car.classList.add('car-animate')
+    }
+
+    // 抛物线跳跃
+    jump (index) {
+        // 商品加好
+        const addBtn = this.doms.goodsContainer.children[index].querySelector(this.el.addBtn)
+        const rect = addBtn.getBoundingClientRect()
+        const start = {
+            x: rect.left,
+            y: rect.top
+        }
+        // 创建抛物线跳跃元素
+        const div = document.createElement('div')
+        div.className = 'add-to-car'
+        const span = document.createElement('span')
+        span.textContent = '+'
+        span.className = 'circle add'
+        // 设置初始化位置
+        div.style.transform = `translateX(${start.x}px)`
+        span.style.transform = `translateY(${start.y}px)`
+        div.appendChild(span)
+        document.body.appendChild(div)
+        // 强制渲染
+        div.clientWidth
+
+        // 设置结束位置
+        div.style.transform = `translateX(${this.jumpTarget.x}px)`
+        span.style.transform = `translateY(${this.jumpTarget.y}px)`
+
+        // 动画介绍
+        div.addEventListener('transitionend', () => {
+            div.remove()
+            this.carAnimation()
+        }, { 
+            once: true
+        })
     }
 }

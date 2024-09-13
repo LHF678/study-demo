@@ -7,10 +7,9 @@
     position: relative;
     width: 375px;
     height: 667px;
-    margin: 30px;
     display: flex;
-    border: solid 1px #ccc;
     padding-bottom: 50px;
+
 }
 
 .goods-menu {
@@ -74,6 +73,7 @@
 }
 
 .circle {
+    display: block;
     width: 18px;
     height: 18px;
     line-height: 18px;
@@ -203,4 +203,36 @@
 .footer-right.active .settle-accounts {
     display: inline-block;
     color: #fff;
+}
+
+
+.car-animate {
+    animation: car 0.5s ease-in-out;
+}
+
+@keyframes car {
+    25% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    75% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.add-to-car {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    transition: 0.6s linear;
+}
+
+.add-to-car .add {
+    transition: 0.6s cubic-bezier(0.5, -0.5, 1, 1);
 }
