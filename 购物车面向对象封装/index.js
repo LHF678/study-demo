@@ -2,7 +2,7 @@
 class UIGoods {
     constructor(g) {
         this.data = g
-        this.choose = 0
+        this.choose = 0 // 商品选择数量
     }
 
     // 获取总价
@@ -33,8 +33,8 @@ class UIGoods {
 class UIData {
     constructor({
         data = [],
-        deliveryThreshold = 30,
-        deliveryPrice = 5
+        deliveryThreshold = 30, // 起送费
+        deliveryPrice = 5 // 配送费
     } = {}) {
         this.uiGoods = data.map(g => new UIGoods(g))
         this.deliveryThreshold = deliveryThreshold // 起送费

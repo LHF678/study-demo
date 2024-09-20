@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>requestAnimationFrame</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            background-color: #ccc;
+        }
+
+        .box1,
+        .box2 {
+            /* position: absolute; */
+            width: 160px;
+            height: 160px;
+            line-height: 160px;
+            text-align: center;
+            color: #fff;
+            font-size: 13px;
+            border-radius: 50%;
+            
+        }
+
+        .box1 {
+            top: 40px;
+            background: red;
+        }
+
+        .box2 {
+            top: 210px;
+            background: green;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <button class="btn">动画开始</button>
+    <button class="btn2">执行同步延迟任务</button>
+    <div class="box1">定时器动画</div>
+    <div class="box2">请求动画帧</div>
+    <script src="./delay.js"></script>
+    <script>
+        const box1 = document.querySelector('.box1')
+        const box2 = document.querySelector('.box2')
+
+        let speed1 = 0
+        let speed2 = 0
+
+        // setInterval定时器方式
+        function setIntervalFn() {
+            let timer = null
+            timer = setInterval(() => {
+                speed1++
+                if (speed1 >= 720) {
+                    clearInterval(timer)
+                } else {
+                    box1.style.transform = `translateX(${speed1}px)`
+                }
+            }, 17)
+        }
+
+        // requestAnimationFrame请求动画帧方式
+        function requestAnimationFrameFn() {
+            function callbackFn() {
+                speed2++
+                if (speed2 < 720) {
+                    box2.style.transform = `translateX(${speed2}px)`
+                    window.requestAnimationFrame(callbackFn)
+                }
+            }
+            window.requestAnimationFrame(callbackFn)
+        }
+
+        document.querySelector('.btn').addEventListener('click', () => {
+            setIntervalFn()
+            requestAnimationFrameFn()
+        })
+
+        document.querySelector('.btn2').addEventListener('click', () => {
+            delay(1000)
+        })
+    </script>
+</body>
+
+</html>
