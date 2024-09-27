@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: 0.6s linear;
+        }
+        .wrapper {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition: 0.6s linear;
+        }
+    </style>
+</head>
+<body>
+    <button id="bth">开始过渡动画</button>
+    <div class="container">
+        <div class="wrapper"></div>
+    </div>
+    <script>
+        const container = document.querySelector('.container');
+        const wrapper = document.querySelector('.wrapper');
+
+        document.getElementById('bth').addEventListener('click', () => {
+            container.style.transform = `translateX(${200}px)`
+            wrapper.style.transform = `translateY(${200}px)`
+        })
+
+        // 虽然transitionend事件本身不冒泡，但子元素的过渡效果可能会影响父元素的布局或样式（如子元素宽度的变化可能导致父元素宽度的变化），但这并不会直接导致父元素的transitionend事件被触发。然而，如果父元素的样式或布局依赖于子元素的某些属性（例如，父元素使用了min-height或padding-bottom等可能受子元素影响的属性），并且这些属性在子元素过渡期间发生了变化，那么父元素可能会因为自身属性的变化而触发transitionend事件。
+
+        container.addEventListener('transitionend', (e) => {
+            console.log(e);
+        }, {
+            once: true
+        });
+    </script>
+</body>
+</html>
