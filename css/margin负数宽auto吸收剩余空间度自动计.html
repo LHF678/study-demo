@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            width: 600px;
+            height: 500px;
+            background-color: lightblue;
+            margin: auto;
+        }
+        .child {
+            width: auto;
+            height: 100px;
+            margin-left: -100px;
+            margin-right: -100px;
+            background-color: red;
+        }
+        /* 
+            盒模型宽高范围默认为 content-box
+            父元素内容区域（包含块）宽度 600
+            子元素宽度 auto 自动计算剩余空间 600 - -100 - -100 = 800
+        */
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</body>
+</html>
