@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bfc {
+            background-color: antiquewhite;
+            padding: 30px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        /* BFC规则1*/
+        .item {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            margin: 10px;
+        }
+        /* BFC规则2 */
+        .float {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-color: blueviolet;
+            /* 可以通过给浮动元素设置 margin-right */
+            margin-right: 10px;
+        }
+        .bfc2 {
+            /* 因为常规流盒子会避开无视浮动元素 所以设置左侧的距离会从最边缘开始 */
+            margin-left: 10px;
+        }
+
+        /* BFC规则3 */
+        .child {
+            width: 100px;
+            height: 10px;
+            background-color: red;
+            margin-top: 10px
+        }
+        .bfc3 {
+            padding: 0;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- BFC规则1 BFC规则1 创建BFC的元素，它的自动高度需要计算浮动元素 -->
+    <div class="bfc">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+
+    <!-- BFC规则2 创建BFC的元素，它的边框盒不会与浮动元素重叠-->
+    <div class="float"></div>
+    <div class="bfc bfc2"></div>
+
+    <!-- BFC规则3 创建BFC的元素，不会和它的子元素进行外边距合并 -->
+     <div class="bfc bfc3">
+        <div class="child"></div>
+     </div>
+</body>
+</html>
