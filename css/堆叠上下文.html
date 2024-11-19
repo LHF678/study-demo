@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            background-color: lightblue;
+        }
+        .container {
+            width: 200px;
+            height: 200px;
+            /* background-color: lightskyblue; */
+            position: relative;
+            margin: 80px;
+        }
+        .item {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        .item1 {
+            z-index: 0;
+            top: -20px;
+            left: -20px;
+            background-color: lightcoral;
+        }
+        .item2 {
+            z-index: 1;
+            left: -40px;
+            top: 20px;
+            background-color: lawngreen;
+        }
+        .item3 {
+            z-index: -1;
+            top: -60px;
+            left: -60px;
+            background-color: aqua;
+        }
+        .normal {
+            width: 100px;
+            height: 100px;
+            background-color: aliceblue;
+        }
+        .float {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item item1"></div>
+        <div class="item item2"></div>
+        <!-- <div class="item item3"></div> -->
+         <span>
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, recusandae!
+         </span>
+        <div class="normal"></div>
+        <div class="float"></div>
+
+    </div> 
+</body>
+</html>
