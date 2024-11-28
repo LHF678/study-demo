@@ -36,13 +36,13 @@
         /* BFC规则3 */
         .child {
             width: 100px;
-            height: 10px;
+            height: 50px;
             background-color: red;
-            margin-top: 10px
+            margin-top: 20px
         }
         .bfc3 {
             padding: 0;
-            height: 20px;
+            height: 100px;
         }
     </style>
 </head>
@@ -55,8 +55,8 @@
     </div>
 
     <!-- BFC规则2 创建BFC的元素，它的边框盒不会与浮动元素重叠-->
-    <div class="float"></div>
-    <div class="bfc bfc2"></div>
+    <!-- <div class="float"></div>
+    <div class="bfc bfc2"></div> -->
 
     <!-- BFC规则3 创建BFC的元素，不会和它的子元素进行外边距合并 -->
      <div class="bfc bfc3">
