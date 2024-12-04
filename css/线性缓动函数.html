@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 1000px;
+            height: 500px;
+            border: solid 1px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .container .jian {
+            margin-top: 50px;
+            width: 100px;
+            transition:  2s linear(0, -0.16 75%, 1);
+        }
+        .container .lanqiu {
+            width: 100px;
+            position: absolute;
+            left: 30%;
+            top: 200px;
+            transition: 4s linear(
+                0, 1 7%,
+                0.1, 1,
+                0.2, 1,
+                0.3, 1,
+                0.4, 1,
+                0.5, 1,
+                0.6, 1,
+                0.7, 1,
+                0.8, 1,
+                0.9, 1
+            );
+        }
+    </style>
+</head>
+<body>
+    <button class="ntb">点击射箭</button>
+    <button class="ntb2">点击皮球</button>
+    <div class="container">
+        <img class="jian" src="../img/jian.png" alt="">
+        <img class="lanqiu" src="../img/lanqiu.png" alt="">
+    </div>
+    <script>
+        const jian = document.querySelector('.jian')
+        document.querySelector('.ntb').addEventListener('click', function() {
+            jian.style.transform = 'translateX(900px)'
+        })
+
+        const lanqiu = document.querySelector('.lanqiu')
+        document.querySelector('.ntb2').addEventListener('click', function() {
+            lanqiu.style.transform = 'translateY(208px)'
+        })
+    </script>
+</body>
+</html>
