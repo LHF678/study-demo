@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 1000px;
+            height: 500px;
+            border: solid 1px;
+        }
+        .ball {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-image: radial-gradient(at 30px 34px, #fff, blue);
+            transition:  2s cubic-bezier(0.3, 0.8, 0.8, 1.5);
+        }
+    </style>
+</head>
+<body>
+    <button class="ntb">点击</button>
+    <div class="container">
+        <div class="ball"></div>
+    </div>
+    <script>
+        const ball = document.querySelector('.ball')
+        document.querySelector('.ntb').addEventListener('click', function() {
+            ball.style.transform = 'translateX(900px)'
+        })
+    </script>
+</body>
+</html>

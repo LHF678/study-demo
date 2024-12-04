@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 375px;
+            height: 667px;
+            border: solid 1px;
+            display: flex;
+            flex-direction: column;
+        }
+        .right {
+            width: 100px;
+            align-self: flex-end;
+            flex: 1;
+            border-left: solid 1px;
+        }
+        .control {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .control input[type="text"] {
+            width: 20px;
+            height: 18px;
+            margin: 0 6px;
+        }
+        .add-wrapper > button, .minus-wrapper > button {
+            width: 20px;
+            height: 20px;
+        }
+        footer  {
+            height: 50px;
+            border-top: solid 1px;
+            padding-left: 10px;
+        }
+        .footer-left {
+            width: 30px;
+            height: 30px;
+            margin-top: 8px;
+            border: solid 1px;
+        }
+        /**
+         * 抛物线容器固定定位 脱离文档流
+         */
+        .parabola {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 999;
+            transition: 0.6s linear;
+        }
+        .parabola-add-btn {
+            transition: 0.6s cubic-bezier(0.4, -0.5, 1, 1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="right">
+            <div class="control">
+                <div class="add-wrapper">
+                    <button>+</button>
+                </div>
+                <input type="text">
+                <div class="minus-wrapper">
+                    <button>-</button>
+                </div>
+            </div>
+            <div class="control">
+                <div class="add-wrapper">
+                    <button>+</button>
+                </div>
+                <input type="text">
+                <div class="minus-wrapper">
+                    <button>-</button>
+                </div>
+            </div>
+            <div class="control">
+                <div class="add-wrapper">
+                    <button>+</button>
+                </div>
+                <input type="text">
+                <div class="minus-wrapper">
+                    <button>-</button>
+                </div>
+            </div>
+            <div class="control">
+                <div class="add-wrapper">
+                    <button>+</button>
+                </div>
+                <input type="text">
+                <div class="minus-wrapper">
+                    <button>-</button>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-left"></div>
+        </footer>
+    </div>
+    <script>
+        const adds = document.querySelectorAll('.add-wrapper button')
+        const footerLeft = document.querySelector('.footer-left')
+        const targetRect = footerLeft.getBoundingClientRect()
+        adds.forEach((dom) => {
+            const startRect = dom.getBoundingClientRect()
+            dom.addEventListener('click', () => {
+                createAddCubic({
+                    startX: startRect.left,
+                    startY: startRect.top,
+                    targetX: targetRect.left,
+                    targetY: targetRect.top
+                })
+            })
+        })
+
+
+        const createAddCubic = ({ startX, startY, targetX, targetY }) => {
+            // 创建抛物线跳跃元素
+            const div = document.createElement('div')
+            div.className = 'add-wrapper parabola'
+            const button = document.createElement('button')
+            button.textContent = '+'
+            button.className = 'parabola-add-btn'
+            //  设置初始位置
+            div.style.transform = `translateX(${startX}px)`
+            button.style.transform = `translateY(${startY}px)`
+            div.appendChild(button)
+            document.body.appendChild(div)
+
+            /**
+             * 浏览器下一次重绘之前 执行元素运动
+             * 为什么要在浏览器下一次重绘之前设置？
+             * 因为在浏览器渲染过程中要等 js 完全解析完后才会进行渲染
+             * 所以目标位置的设置会立马覆盖初始位置的设置，在渲染DOM的时候此事DOM的translate已经设置成目标位置
+             */
+            requestAnimationFrame(() => {
+                div.style.transform = `translateX(${targetX}px)`
+                button.style.transform = `translateY(${targetY}px)`
+            })
+            div.addEventListener('transitionend', () => {
+                div.remove()
+            }, { once: true })
+        }
+    </script>
+</body>
+</html>

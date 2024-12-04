@@ -10,13 +10,21 @@
             padding: 8px;
             border: dotted 2px #999;
             border-radius: 4px;
+            --my-color: #4990E2;
+            color: blue;
+            --my-font-color: 10px;
         }
         .item {
-            background-color: #4990E2;
+            /* background-color: var(
+                --my-color, --my-background, red
+            ); */
+            background-color: var(--my-color);
+            /* color: var(--my-font-color); */
+            color: red;
+            color: 20px;
             border: solid 1px;
             padding: 20px 30px;
             font-weight: bold;
-            color: #fff;
             font-size: 20px;
             flex: 1;
         }
