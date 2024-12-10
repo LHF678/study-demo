@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+        }
+        .content {
+            position: relative;
+            height: fit-content;
+            font-size: 20px;
+            letter-spacing: 6px;
+            overflow: hidden;
+            display: none;
+        }
+        .content::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            background-color: #fff;
+            top: 0;
+            right: 0;
+            height: 26px;
+            border-left: .1em solid #000;
+            animation:  typing 3s steps(5) forwards, cursor 1s step-end infinite;
+        }
+
+        @keyframes cursor {
+            from,
+            to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #000;
+            }
+        }
+
+        @keyframes typing {
+            from {
+                width: 100%;
+            }
+
+            to {
+                width: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="btn" style="margin-right: 60px">按钮</button>
+    <div class="content">只因你太美</div>
+    <script>
+        const btn = document.querySelector('.btn')
+        btn.addEventListener('click', () => {
+            document.querySelector('.content').style.display = 'block'
+        })
+    </script>
+</body>
+</html>
+    </script>
+</body>
+</html>
