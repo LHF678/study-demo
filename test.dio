@@ -1,33 +1,44 @@
 <mxfile host="65bd71144e">
     <diagram id="_C0B_zKwxBbBTVl7wffV" name="第 1 页">
-        <mxGraphModel dx="827" dy="797" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+        <mxGraphModel dx="969" dy="737" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1920" background="#ffffff" math="0" shadow="1">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="23" style="edgeStyle=none;html=1;fillColor=#6a00ff;strokeColor=#3700CC;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="20" target="21">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="300" y="490" as="targetPoint"/>
-                    </mxGeometry>
+                <mxCell id="76" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#FF0000;strokeColor=#000000;" edge="1" parent="1" source="65" target="68">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="原始代码" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
-                    <mxGeometry x="140" y="450" width="80" height="80" as="geometry"/>
+                <mxCell id="65" value="&lt;font color=&quot;#030303&quot;&gt;CSS&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="234" y="142" width="95" height="42" as="geometry"/>
                 </mxCell>
-                <mxCell id="27" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#6a00ff;strokeColor=#3700CC;" edge="1" parent="1" source="21" target="22">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="480" y="490" as="targetPoint"/>
-                    </mxGeometry>
+                <mxCell id="77" style="edgeStyle=none;html=1;entryX=0.459;entryY=0.026;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#000000;fontColor=#FF0000;" edge="1" parent="1" source="68" target="71">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="AST" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
-                    <mxGeometry x="310" y="450" width="80" height="80" as="geometry"/>
+                <mxCell id="68" value="&lt;font color=&quot;#ff0000&quot;&gt;Parser 解析器&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF0000;" vertex="1" parent="1">
+                    <mxGeometry x="225" y="221" width="114" height="38" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="目标代码" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
-                    <mxGeometry x="478" y="449" width="80" height="80" as="geometry"/>
+                <mxCell id="69" value="会把css先解析成AST（抽象语法树）" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;position2=0.03;" vertex="1" parent="1">
+                    <mxGeometry x="346" y="174" width="223" height="67" as="geometry"/>
                 </mxCell>
-                <mxCell id="55" value="" style="edgeStyle=entityRelationEdgeStyle;startArrow=none;endArrow=none;segment=10;curved=1;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;" edge="1" parent="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="430" y="432" as="sourcePoint"/>
-                        <mxPoint x="460" y="375" as="targetPoint"/>
-                    </mxGeometry>
+                <mxCell id="78" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#000000;fontColor=#FF0000;" edge="1" parent="1" source="71" target="72">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="&lt;font color=&quot;#030303&quot;&gt;Plugin1 插件&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="215" y="291" width="146" height="38" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#000000;fontColor=#FF0000;" edge="1" parent="1" source="72" target="73">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="&lt;font color=&quot;#030303&quot;&gt;Plugin2 插件&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="215" y="360" width="144" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#000000;fontColor=#FF0000;" edge="1" parent="1" source="73" target="75">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="&lt;font color=&quot;#ff0000&quot;&gt;Stringifier 转换器&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF0000;" vertex="1" parent="1">
+                    <mxGeometry x="229" y="427" width="114" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="&lt;font color=&quot;#030303&quot;&gt;New Css&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="235" y="493" width="98" height="36" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
